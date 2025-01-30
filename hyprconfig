@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+case $1 in
+  init)
+    init()
+    ;;
+
+  switch)
+    switch()
+    ;;
+
+  download)
+    download()
+    ;;
+
+  help)
+    help()
+    ;;
+
+  *)
+    echo "Unknown option choosen"
+    ;;
+esac
+
+config_dir = "~/.config/hyprconfig"
+
+function init() {
+  if [[ -f "$config_dir" ]]; then
+    echo "Hyprconfig already initialised"
+    return
+  fi
+
+  mkdir $config_dir
+  mv ~/.config/hyprlang $config_dir/ 
